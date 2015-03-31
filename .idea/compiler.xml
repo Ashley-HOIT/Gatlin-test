@@ -23,7 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="Gatlin Performance test" />
+        <module name="gatlin_performance_test" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Gatlin Performance test" target="1.5" />
+      <module name="gatlin_performance_test" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

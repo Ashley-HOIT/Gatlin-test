@@ -7,11 +7,48 @@
     <groupId>RT</groupId>
     <artifactId>Perfomance_tests</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
     <dependency>
         <groupId>io.gatling.highcharts</groupId>
         <artifactId>gatling-charts-highcharts</artifactId>
         <version>2.1.4</version>
+        <scope>test</scope>
     </dependency>
+</dependencies>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>excilys</id>
+            <name>Excilys Repository</name>
+            <url>http://repository.excilys.com/content/groups/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+    ...
+    <build>
+    <plugins>
+    <plugin>
+        <!-- Run all [matching] tests] on mvn test -->
+        <groupId>io.gatling</groupId>
+        <artifactId>gatling-maven-plugin</artifactId>
+        <version>${gatling.version}</version>
+        <configuration>
+            <simulationsFolder>src/test/scala</simulationsFolder>
+            <!--<includes>-->
+                <!--<include>**/your_package/*.scala</include>-->
+            <!--</includes>-->
+            <!--excludes>
+                <exclude>**/SomeBadTest.scala</exclude>
+            </excludes-->
+            <!-- <simulationClass>foo.Bar</simulationClass> -->
+        </configuration>
+        <executions>
+            <execution>
+                <phase>test</phase>
+                <goals><goal>execute</goal></goals>
+            </execution>
+        </executions>
+    </plugin>
+    </plugins>
+    </build>
 
 </project>
